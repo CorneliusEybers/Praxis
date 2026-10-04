@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\MyRepos\\Praxis\\Praxis.Solution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FCFE47F7-81E8-4EC5-A6E1-2C792BCA534E}|Praxis.Domain\\Praxis.Domain.csproj|c:\\myrepos\\praxis\\praxis.solution\\praxis.domain\\entitybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCFE47F7-81E8-4EC5-A6E1-2C792BCA534E}|Praxis.Domain\\Praxis.Domain.csproj|solutionrelative:praxis.domain\\entitybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FCFE47F7-81E8-4EC5-A6E1-2C792BCA534E}|Praxis.Domain\\Praxis.Domain.csproj|c:\\myrepos\\praxis\\praxis.solution\\praxis.domain\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FCFE47F7-81E8-4EC5-A6E1-2C792BCA534E}|Praxis.Domain\\Praxis.Domain.csproj|solutionrelative:praxis.domain\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCFE47F7-81E8-4EC5-A6E1-2C792BCA534E}|Praxis.Domain\\Praxis.Domain.csproj|c:\\myrepos\\praxis\\praxis.solution\\praxis.domain\\entitybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCFE47F7-81E8-4EC5-A6E1-2C792BCA534E}|Praxis.Domain\\Praxis.Domain.csproj|solutionrelative:praxis.domain\\entitybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +23,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EntityBase.cs",
-              "DocumentMoniker": "C:\\MyRepos\\Praxis\\Praxis.Solution\\Praxis.Domain\\EntityBase.cs",
-              "RelativeDocumentMoniker": "Praxis.Domain\\EntityBase.cs",
-              "ToolTip": "C:\\MyRepos\\Praxis\\Praxis.Solution\\Praxis.Domain\\EntityBase.cs",
-              "RelativeToolTip": "Praxis.Domain\\EntityBase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-04T08:07:28.561Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Event.cs",
               "DocumentMoniker": "C:\\MyRepos\\Praxis\\Praxis.Solution\\Praxis.Domain\\Event.cs",
               "RelativeDocumentMoniker": "Praxis.Domain\\Event.cs",
               "ToolTip": "C:\\MyRepos\\Praxis\\Praxis.Solution\\Praxis.Domain\\Event.cs",
               "RelativeToolTip": "Praxis.Domain\\Event.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-04T08:01:28.382Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -73,6 +61,18 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EntityBase.cs",
+              "DocumentMoniker": "C:\\MyRepos\\Praxis\\Praxis.Solution\\Praxis.Domain\\EntityBase.cs",
+              "RelativeDocumentMoniker": "Praxis.Domain\\EntityBase.cs",
+              "ToolTip": "C:\\MyRepos\\Praxis\\Praxis.Solution\\Praxis.Domain\\EntityBase.cs",
+              "RelativeToolTip": "Praxis.Domain\\EntityBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T08:07:28.561Z"
             }
           ]
         }
