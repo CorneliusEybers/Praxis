@@ -1,9 +1,10 @@
-using Scalar.AspNetCore;
 using Microsoft.EntityFrameworkCore;
-using Praxis.Infrastructure.Persistence;
-using Praxis.Application.Interfaces;
-using Praxis.Infrastructure.Repositories;
 using Praxis.Application.Events.CreateEvent;
+using Praxis.Application.Events.GetEventById;
+using Praxis.Application.Interfaces;
+using Praxis.Infrastructure.Persistence;
+using Praxis.Infrastructure.Repositories;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,7 @@ builder.Services.AddScoped<IAttendeeRepository, AttendeeRepository>();
 
 // - Service registrations
 builder.Services.AddScoped<CreateEventService>();
+builder.Services.AddScoped<GetEventByIdService>();
 
 
 var app = builder.Build();
