@@ -2,6 +2,9 @@
 # Ignore generated IDE, build, test, tooling, and local persistence files.
 
 # Visual Studio / user-specific files
+**/.vs/
+**/bin/
+**/obj/
 .vs/
 *.suo
 *.user
