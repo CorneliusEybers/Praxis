@@ -13,6 +13,8 @@ public class EventAttendee : EntityBase
 
     public Attendee? Attendee { get; private set; }
 
+    public int AttendanceStatusId { get; private set; }
+
     public AttendanceStatus AttendanceStatus { get; private set; }
 
     protected EventAttendee()
@@ -25,18 +27,18 @@ public class EventAttendee : EntityBase
     {
         EventId = eventId;
         AttendeeId = attendeeId;
-        AttendanceStatus = AttendanceStatus.Pending;
+        AttendanceStatusId = (int)Enums.AttendanceStatusId.Pending;
     }
 
     public void Accept(string updatedBy)
     {
-        AttendanceStatus = AttendanceStatus.Accepted;
+        AttendanceStatusId = (int)Enums.AttendanceStatusId.Accepted;
         MarkAsUpdated(updatedBy);
     }
 
     public void Reject(string updatedBy)
     {
-        AttendanceStatus = AttendanceStatus.Rejected;
+        AttendanceStatusId = (int)Enums.AttendanceStatusId.Rejected;
         MarkAsUpdated(updatedBy);
     }
 }

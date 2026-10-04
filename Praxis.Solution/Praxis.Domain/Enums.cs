@@ -1,6 +1,6 @@
 ﻿namespace Praxis.Domain.Enums;
 
-public enum AttendanceStatus
+public enum AttendanceStatusId
 {
     Pending = 1,
     Accepted = 2,
