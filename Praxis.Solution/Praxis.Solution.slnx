@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Praxis.API/Praxis.API.csproj" />
+  <Project Path="Praxis.Application/Praxis.Application.csproj" Id="b918cad9-1f86-4d3d-bdcf-8d3e416dde90" />
+  <Project Path="Praxis.Domain/Praxis.Domain.csproj" Id="fcfe47f7-81e8-4ec5-a6e1-2c792bca534e" />
+  <Project Path="Praxis.Infrastructure/Praxis.Infrastructure.csproj" Id="6177655b-1a07-4aed-b03a-42c0cfdd180b" />
+  <Project Path="Praxis.Tests/Praxis.Tests.csproj" Id="f8402528-718f-4068-9845-74cc817e848d" />
+</Solution>

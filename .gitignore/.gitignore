@@ -1,0 +1,112 @@
+# Praxis - .NET / Visual Studio
+# Ignore generated IDE, build, test, tooling, and local persistence files.
+
+# Visual Studio / user-specific files
+.vs/
+*.suo
+*.user
+*.rsuser
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# JetBrains Rider / ReSharper
+.idea/
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Build output
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+artifacts/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+# Logs and temporary files
+[Ll]og/
+[Ll]ogs/
+*.log
+*.tmp
+*.temp
+*.bak
+*~
+~$*
+
+# Test results / coverage
+[Tt]est[Rr]esult*/
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+coverage.*
+nunit-*.xml
+TestResult.xml
+*.VisualState.xml
+
+# BenchmarkDotNet
+BenchmarkDotNet.Artifacts/
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+
+# Local databases
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.mdf
+*.ldf
+*.ndf
+
+# Publish output / local publish profiles
+publish/
+[Pp]ublishProfiles/
+*.pubxml
+*.pubxml.user
+*.publishproj
+*.publishsettings
+PublishScripts/
+
+# Certificates / secrets
+*.pfx
+*.p12
+*.cer
+*.key
+
+# ASP.NET Core user secrets are stored outside the repository by default.
+# Do not add real credentials to appsettings*.json.
+
+# MSBuild/tooling
+*.binlog
+
+# Node tooling, in case a generated client/docs tool is added later
+node_modules/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local history / IDE extensions
+.localhistory/
+.history/
+.axoCover/
+OpenCover/
