@@ -19,11 +19,9 @@ public class EventAttendee : EntityBase
     {
     }
 
-    public EventAttendee(
-        int eventId,
-        int attendeeId,
-        string createdBy)
-        : base(createdBy)
+    public EventAttendee(int eventId,
+                         int attendeeId,
+                         string createdBy) : base(createdBy)
     {
         EventId = eventId;
         AttendeeId = attendeeId;

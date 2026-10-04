@@ -23,14 +23,12 @@ public class Event : EntityBase
     {
     }
 
-    public Event(
-        string title,
-        string? description,
-        DateTime begin,
-        DateTime end,
-        int eventTypeId,
-        string createdBy)
-        : base(createdBy)
+    public Event(string title,
+                string? description,
+                DateTime begin,
+                DateTime end,
+                int eventTypeId,
+                string createdBy) : base(createdBy)
     {
         if (string.IsNullOrWhiteSpace(title))
         {
