@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Praxis.Infrastructure.Persistence;
 using Praxis.Application.Interfaces;
 using Praxis.Infrastructure.Repositories;
+using Praxis.Application.Events.CreateEvent;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,9 @@ builder.Services.AddDbContext<PraxisDbContext>(options => options.UseSqlServer(b
 // - Repository registrations
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 builder.Services.AddScoped<IAttendeeRepository, AttendeeRepository>();
+
+// - Service registrations
+builder.Services.AddScoped<CreateEventService>();
 
 
 var app = builder.Build();

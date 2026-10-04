@@ -4,6 +4,8 @@ namespace Praxis.Domain.Entities;
 
 public class Event : EntityBase
 {
+    #region Properties
+
     public string Title { get; private set; } = string.Empty;
 
     public string? Description { get; private set; }
@@ -16,8 +18,11 @@ public class Event : EntityBase
 
     public EventType? EventType { get; private set; }
 
-    public ICollection<EventAttendee> EventAttendees { get; private set; }
-        = new List<EventAttendee>();
+    public ICollection<EventAttendee> EventAttendees { get; private set; } = new List<EventAttendee>();
+
+    #endregion
+
+    #region Constructor
 
     protected Event()
     {
@@ -32,16 +37,12 @@ public class Event : EntityBase
     {
         if (string.IsNullOrWhiteSpace(title))
         {
-            throw new ArgumentException(
-                "Event title is required.",
-                nameof(title));
+            throw new ArgumentException("Event title is required.", nameof(title));
         }
 
         if (end <= begin)
         {
-            throw new ArgumentException(
-                "Event end time must be after the begin time.",
-                nameof(end));
+            throw new ArgumentException("Event end time must be after the begin time.", nameof(end));
         }
 
         Title = title;
@@ -51,26 +52,25 @@ public class Event : EntityBase
         EventTypeId = eventTypeId;
     }
 
-    public void UpdateDetails(
-        string title,
-        string? description,
-        DateTime begin,
-        DateTime end,
-        int eventTypeId,
-        string updatedBy)
+    #endregion
+
+    #region Public Methods
+
+    public void UpdateDetails(string title,
+                              string? description,
+                              DateTime begin,
+                              DateTime end,
+                              int eventTypeId,
+                              string updatedBy)
     {
         if (string.IsNullOrWhiteSpace(title))
         {
-            throw new ArgumentException(
-                "Event title is required.",
-                nameof(title));
+            throw new ArgumentException("Event title is required.", nameof(title));
         }
 
         if (end <= begin)
         {
-            throw new ArgumentException(
-                "Event end time must be after the begin time.",
-                nameof(end));
+            throw new ArgumentException("Event end time must be after the begin time.", nameof(end));
         }
 
         Title = title;
@@ -81,4 +81,23 @@ public class Event : EntityBase
 
         MarkAsUpdated(updatedBy);
     }
+
+    public void AddAttendee(Attendee attendee,
+                            string createdBy)
+    {
+        ArgumentNullException.ThrowIfNull(attendee);
+
+        if (EventAttendees.Any(x => x.AttendeeId == attendee.Id))
+        {
+            throw new InvalidOperationException($"Attendee '{attendee.Id}' has already been added to this event.");
+        }
+
+        EventAttendees.Add(new EventAttendee(attendee, createdBy));
+    }
+
+    #endregion
+
+    #region Private Methods
+
+    #endregion
 }
