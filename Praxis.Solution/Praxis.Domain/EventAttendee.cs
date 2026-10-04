@@ -5,6 +5,8 @@ namespace Praxis.Domain.Entities;
 
 public class EventAttendee : EntityBase
 {
+    #region Properties 
+
     public int EventId { get; private set; }
 
     public Event? Event { get; private set; }
@@ -16,6 +18,10 @@ public class EventAttendee : EntityBase
     public int AttendanceStatusId { get; private set; }
 
     public AttendanceStatus AttendanceStatus { get; private set; }
+
+    #endregion
+
+    #region Constructor
 
     protected EventAttendee()
     {
@@ -30,6 +36,21 @@ public class EventAttendee : EntityBase
         AttendanceStatusId = (int)Enums.AttendanceStatusId.Pending;
     }
 
+    public EventAttendee(Attendee attendee,
+                        string createdBy) : base(createdBy)
+    {
+        ArgumentNullException.ThrowIfNull(attendee);
+
+        Attendee = attendee;
+        AttendeeId = attendee.Id;
+
+        AttendanceStatusId = (int)Enums.AttendanceStatusId.Pending;
+    }
+
+    #endregion
+
+    #region Public Methods
+
     public void Accept(string updatedBy)
     {
         AttendanceStatusId = (int)Enums.AttendanceStatusId.Accepted;
@@ -41,4 +62,6 @@ public class EventAttendee : EntityBase
         AttendanceStatusId = (int)Enums.AttendanceStatusId.Rejected;
         MarkAsUpdated(updatedBy);
     }
+
+    #endregion
 }
