@@ -14,7 +14,7 @@ namespace Praxis.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "AttendanceStatuss",
+                name: "AttendanceStatus",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -29,11 +29,11 @@ namespace Praxis.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AttendanceStatuss", x => x.Id);
+                    table.PrimaryKey("PK_AttendanceStatus", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Attendees",
+                name: "Attendee",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -50,11 +50,11 @@ namespace Praxis.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Attendees", x => x.Id);
+                    table.PrimaryKey("PK_Attendee", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "EventTypes",
+                name: "EventType",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -69,11 +69,11 @@ namespace Praxis.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EventTypes", x => x.Id);
+                    table.PrimaryKey("PK_EventType", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Events",
+                name: "Event",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -90,17 +90,17 @@ namespace Praxis.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Events", x => x.Id);
+                    table.PrimaryKey("PK_Event", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Events_EventTypes_EventTypeId",
+                        name: "FK_Event_EventType_EventTypeId",
                         column: x => x.EventTypeId,
-                        principalTable: "EventTypes",
+                        principalTable: "EventType",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "EventAttendees",
+                name: "EventAttendee",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -115,29 +115,29 @@ namespace Praxis.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EventAttendees", x => x.Id);
+                    table.PrimaryKey("PK_EventAttendee", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EventAttendees_AttendanceStatuss_AttendanceStatusId",
+                        name: "FK_EventAttendee_AttendanceStatus_AttendanceStatusId",
                         column: x => x.AttendanceStatusId,
-                        principalTable: "AttendanceStatuss",
+                        principalTable: "AttendanceStatus",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_EventAttendees_Attendees_AttendeeId",
+                        name: "FK_EventAttendee_Attendee_AttendeeId",
                         column: x => x.AttendeeId,
-                        principalTable: "Attendees",
+                        principalTable: "Attendee",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_EventAttendees_Events_EventId",
+                        name: "FK_EventAttendee_Event_EventId",
                         column: x => x.EventId,
-                        principalTable: "Events",
+                        principalTable: "Event",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
-                table: "AttendanceStatuss",
+                table: "AttendanceStatus",
                 columns: new[] { "Id", "Code", "CreatedBy", "CreatedDateTime", "Description", "Name", "UpdatedBy", "UpdatedDateTime" },
                 values: new object[,]
                 {
@@ -146,45 +146,58 @@ namespace Praxis.Infrastructure.Migrations
                     { 3, "REJ", "SYSTEM", new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "Attendee rejected the event", "Rejected", null, null }
                 });
 
+            migrationBuilder.InsertData(
+                table: "EventType",
+                columns: new[] { "Id", "Code", "CreatedBy", "CreatedDateTime", "Description", "Name", "UpdatedBy", "UpdatedDateTime" },
+                values: new object[,]
+                {
+                    { 1, "CON", "SYSTEM", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "General consultation or patient appointment.", "Consultation", null, null },
+                    { 2, "FUP", "SYSTEM", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Follow-up appointment relating to an earlier consultation or treatment.", "Follow-up", null, null },
+                    { 3, "PRO", "SYSTEM", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Clinical procedure or treatment appointment.", "Procedure", null, null },
+                    { 4, "ADM", "SYSTEM", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Administrative or non-clinical scheduled activity.", "Administration", null, null },
+                    { 5, "MTG", "SYSTEM", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Internal or external meeting.", "Meeting", null, null },
+                    { 6, "OTH", "SYSTEM", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Any scheduled event not covered by the defined event types.", "Other", null, null }
+                });
+
             migrationBuilder.CreateIndex(
-                name: "IX_EventAttendees_AttendanceStatusId",
-                table: "EventAttendees",
+                name: "IX_Event_EventTypeId",
+                table: "Event",
+                column: "EventTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EventAttendee_AttendanceStatusId",
+                table: "EventAttendee",
                 column: "AttendanceStatusId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EventAttendees_AttendeeId",
-                table: "EventAttendees",
+                name: "IX_EventAttendee_AttendeeId",
+                table: "EventAttendee",
                 column: "AttendeeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EventAttendees_EventId_AttendeeId",
-                table: "EventAttendees",
+                name: "IX_EventAttendee_EventId_AttendeeId",
+                table: "EventAttendee",
                 columns: new[] { "EventId", "AttendeeId" },
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Events_EventTypeId",
-                table: "Events",
-                column: "EventTypeId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "EventAttendees");
+                name: "EventAttendee");
 
             migrationBuilder.DropTable(
-                name: "AttendanceStatuss");
+                name: "AttendanceStatus");
 
             migrationBuilder.DropTable(
-                name: "Attendees");
+                name: "Attendee");
 
             migrationBuilder.DropTable(
-                name: "Events");
+                name: "Event");
 
             migrationBuilder.DropTable(
-                name: "EventTypes");
+                name: "EventType");
         }
     }
 }
