@@ -9,7 +9,7 @@ public class EventAttendeeConfiguration
 {
     public void Configure(EntityTypeBuilder<EventAttendee> builder)
     {
-        builder.ToTable("EventAttendees");
+        builder.ToTable("EventAttendee");
 
         builder.HasKey(x => x.Id);
 

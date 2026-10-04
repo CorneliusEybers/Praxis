@@ -12,7 +12,7 @@ using Praxis.Infrastructure.Persistence;
 namespace Praxis.Infrastructure.Migrations
 {
     [DbContext(typeof(PraxisDbContext))]
-    [Migration("20261004121520_InitialCreate")]
+    [Migration("20261004124245_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -62,7 +62,7 @@ namespace Praxis.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AttendanceStatuss", (string)null);
+                    b.ToTable("AttendanceStatus", (string)null);
 
                     b.HasData(
                         new
@@ -139,7 +139,7 @@ namespace Praxis.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Attendees", (string)null);
+                    b.ToTable("Attendee", (string)null);
                 });
 
             modelBuilder.Entity("Praxis.Domain.Entities.Event", b =>
@@ -185,7 +185,7 @@ namespace Praxis.Infrastructure.Migrations
 
                     b.HasIndex("EventTypeId");
 
-                    b.ToTable("Events", (string)null);
+                    b.ToTable("Event", (string)null);
                 });
 
             modelBuilder.Entity("Praxis.Domain.Entities.EventAttendee", b =>
@@ -227,7 +227,7 @@ namespace Praxis.Infrastructure.Migrations
                     b.HasIndex("EventId", "AttendeeId")
                         .IsUnique();
 
-                    b.ToTable("EventAttendees", (string)null);
+                    b.ToTable("EventAttendee", (string)null);
                 });
 
             modelBuilder.Entity("Praxis.Domain.Entities.EventType", b =>
@@ -267,7 +267,63 @@ namespace Praxis.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EventTypes", (string)null);
+                    b.ToTable("EventType", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Code = "CON",
+                            CreatedBy = "SYSTEM",
+                            CreatedDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "General consultation or patient appointment.",
+                            Name = "Consultation"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Code = "FUP",
+                            CreatedBy = "SYSTEM",
+                            CreatedDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Follow-up appointment relating to an earlier consultation or treatment.",
+                            Name = "Follow-up"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Code = "PRO",
+                            CreatedBy = "SYSTEM",
+                            CreatedDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Clinical procedure or treatment appointment.",
+                            Name = "Procedure"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Code = "ADM",
+                            CreatedBy = "SYSTEM",
+                            CreatedDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Administrative or non-clinical scheduled activity.",
+                            Name = "Administration"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Code = "MTG",
+                            CreatedBy = "SYSTEM",
+                            CreatedDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Internal or external meeting.",
+                            Name = "Meeting"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Code = "OTH",
+                            CreatedBy = "SYSTEM",
+                            CreatedDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Any scheduled event not covered by the defined event types.",
+                            Name = "Other"
+                        });
                 });
 
             modelBuilder.Entity("Praxis.Domain.Entities.Event", b =>

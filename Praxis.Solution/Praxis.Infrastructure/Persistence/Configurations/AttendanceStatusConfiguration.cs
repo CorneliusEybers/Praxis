@@ -9,7 +9,7 @@ public class AttendanceStatusConfiguration
 {
     public void Configure(EntityTypeBuilder<AttendanceStatus> builder)
     {
-        builder.ToTable("AttendanceStatuss");
+        builder.ToTable("AttendanceStatus");
 
         builder.HasKey(x => x.Id);
 
