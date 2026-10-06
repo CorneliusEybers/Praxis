@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Praxis.API.ExceptionHandling;
 using Praxis.Application.Events.CreateEvent;
 using Praxis.Application.Events.GetEventById;
 using Praxis.Application.Interfaces;
@@ -14,6 +15,10 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+// - Centralized Exception Handling
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+
 // - Add the database context to the service container
 builder.Services.AddDbContext<PraxisDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -27,6 +32,9 @@ builder.Services.AddScoped<GetEventByIdService>();
 
 
 var app = builder.Build();
+
+// - Exception-Handling Middleware
+app.UseExceptionHandler();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

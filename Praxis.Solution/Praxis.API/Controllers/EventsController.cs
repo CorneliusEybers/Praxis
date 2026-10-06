@@ -67,14 +67,5 @@ public class EventsController : ControllerBase
                                     eventItem.EventTypeId});
     }
 
-    [HttpGet("{id:int}")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult GetById(int id)
-    {
-        // Placeholder for the next use case.
-        return NotFound();
-    }
-
     #endregion
 }
